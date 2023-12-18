@@ -13,7 +13,6 @@ def load_tokenizer(tokenizer_path):
 
 
 def generate_text_roberta(sequence):
-    sequence += "<mask>."
 
     fill_mask = pipeline(
         "fill-mask",
@@ -39,4 +38,7 @@ def generate_text_gpt_2(sequence):
         top_k=100,
         top_p=0.95,
     )
-    return tokenizer.decode(final_outputs[0], skip_special_tokens=True)
+
+    generated_text = tokenizer.decode(final_outputs[0], skip_special_tokens=True)
+
+    return generated_text.split('\n')[0] + "."
