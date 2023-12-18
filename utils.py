@@ -20,9 +20,7 @@ def generate_text_roberta(sequence):
         tokenizer="./Models/AzBERTo/"
     )
 
-    res = fill_mask(sequence)
-
-    return '\n'.join(item['sequence'] for item in res)
+    return fill_mask(sequence)[0]['sequence']
 
 
 def generate_text_gpt_2(sequence):
