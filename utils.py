@@ -39,4 +39,4 @@ def generate_text_gpt_2(sequence):
 
     generated_text = tokenizer.decode(final_outputs[0], skip_special_tokens=True)
 
-    return generated_text.split('\n')[0] + "."
+    return generated_text.split('\n')[0]
